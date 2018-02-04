@@ -19,3 +19,7 @@ module OS
     end
   end
 end
+
+def clear
+  OS.windows? ? system('cls') : system('clear')
+end

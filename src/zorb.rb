@@ -3,6 +3,8 @@ require 'yaml'
 
 Dir[File.join(__dir__, %w[lib], '*.rb')].map(&method(:require))
 
+clear()
+
 $> << %{
        .
     / \\

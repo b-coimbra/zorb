@@ -5,10 +5,6 @@ require 'io/console'
 
 class Map
   class << self
-    def clear
-      OS.windows? ? system('cls') : system('clear')
-    end
-
     def map size, row, column
       print "MAP %#{size-2}dx%d\n" % [column, row]
 
@@ -18,7 +14,7 @@ class Map
         if axis == 1 || axis == 9
           print "+ #{'-' * size} +\n"
         elsif axis == row
-          print "#{"\e[47m|\e[0m"} #{' ' * (column - 1) + "\e[31m♦\e[0m" + ' ' * (size - column)} |\n"
+          print "#{'|'.white.bg_gray} #{' ' * (column - 1) + "♦".red + ' ' * (size - column)} |\n"
         else
           print "| #{' ' * size} |\n"
         end
